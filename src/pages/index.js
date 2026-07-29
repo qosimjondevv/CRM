@@ -1,0 +1,8 @@
+export { default as LoginPage } from "./LoginPage"
+export { default as DashboardPage } from "./DashboardPage"
+export { default as EmployeesPage } from "./EmployeesPage"
+export { default as EmployeeDetailPage } from "./EmployeeDetailPage"
+export { default as TasksPage } from "./TasksPage"
+export { default as TaskDetailPage } from "./TaskDetailPage"
+export { default as ProfilePage } from "./ProfilePage"
+export { default as NotFoundPage } from "./NotFoundPage"
