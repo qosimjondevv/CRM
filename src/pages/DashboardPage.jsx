@@ -16,6 +16,7 @@ export default function DashboardPage() {
         title={
           isAdmin ? t("dashboard.adminTitle", { name: user?.firstName ?? "" }) : t("dashboard.employeeTitle")
         }
+        pageTitle={t("nav.dashboard")}
         subtitle={isAdmin ? t("dashboard.adminSubtitle") : t("dashboard.employeeSubtitle")}
       />
 

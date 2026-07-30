@@ -1,5 +1,7 @@
 export * from "./useAuth"
 export * from "./useLocale"
+export * from "./useTheme"
+export * from "./useDocumentTitle"
 export * from "./useFilterOptions"
 export * from "./useCan"
 export * from "./useRoleGuard"

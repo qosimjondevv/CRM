@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 
 import { AuthContext } from "./AuthContext"
 import { login as loginRequest, logout as logoutRequest } from "@/api/auth.api"
@@ -8,11 +8,16 @@ import { authEvents } from "@/utils"
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const loggedInRef = useRef(false)
 
   useEffect(() => {
     getProfile()
       .then(({ data }) => setUser(data))
-      .catch(() => setUser(null))
+      .catch(() => {
+        // A login may have already succeeded while this initial check was still in flight —
+        // don't let its late 401 clobber the freshly authenticated session.
+        if (!loggedInRef.current) setUser(null)
+      })
       .finally(() => setIsLoading(false))
   }, [])
 
@@ -20,6 +25,7 @@ export function AuthProvider({ children }) {
 
   const login = useCallback(async (credentials) => {
     const { data } = await loginRequest(credentials)
+    loggedInRef.current = true
     setUser(data)
     return data
   }, [])

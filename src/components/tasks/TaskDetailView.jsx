@@ -8,7 +8,7 @@ import { useLocale } from "@/hooks"
 import { formatDate, isOverdue } from "@/utils"
 
 export function TaskDetailView({ task, canEditStatus, onStatusChange }) {
-  const { t } = useLocale()
+  const { t, locale } = useLocale()
   const overdue = isOverdue(task.dueDate, task.status)
 
   return (
@@ -27,7 +27,7 @@ export function TaskDetailView({ task, canEditStatus, onStatusChange }) {
           )}
         </div>
         <p className={cn("text-sm", overdue && "font-medium text-destructive")}>
-          {t("tasks.dueDateLabel")} {formatDate(task.dueDate)}
+          {t("tasks.dueDateLabel")} {formatDate(task.dueDate, locale)}
         </p>
       </Card>
 

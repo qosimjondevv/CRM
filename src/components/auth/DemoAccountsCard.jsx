@@ -20,7 +20,7 @@ export function DemoAccountsCard({ onSelect }) {
   }
 
   return (
-    <div className="rounded-lg border bg-muted/30 p-4">
+    <div className="rounded-lg border border-blue-100 bg-blue-50/50 p-4 dark:border-border dark:bg-muted/30">
       <p className="text-sm font-medium">{t("auth.demoAccounts")}</p>
       <p className="mb-3 text-xs text-muted-foreground">{t("auth.demoAccountsHint")}</p>
       <div className="space-y-1">
@@ -29,7 +29,7 @@ export function DemoAccountsCard({ onSelect }) {
             key={account.email}
             type="button"
             onClick={() => handleCopy(account)}
-            className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-left text-sm hover:bg-muted"
+            className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-left text-sm hover:bg-blue-100/60 dark:hover:bg-muted"
           >
             <span>
               <span className="font-medium">{t(`roles.${account.roleKey}`)}</span>{" "}

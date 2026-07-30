@@ -1,6 +1,5 @@
 export const uz = {
   common: {
-    all: "Barchasi",
     save: "O'zgarishlarni saqlash",
     cancel: "Bekor qilish",
     delete: "O'chirish",
@@ -14,6 +13,7 @@ export const uz = {
     next: "Keyingi",
     viewAll: "Barchasini ko'rish",
     paginationSummary: "{{total}} tadan {{from}}–{{to}} tasi ko'rsatilmoqda",
+    pageOf: "{{page}}-sahifa, jami {{totalPages}}",
   },
   nav: {
     dashboard: "Boshqaruv paneli",
@@ -21,6 +21,7 @@ export const uz = {
     tasks: "Vazifalar",
     profile: "Profil",
     logout: "Chiqish",
+    loggingOut: "Chiqilmoqda...",
   },
   auth: {
     heroTitle: "Jamoangizni aniqlik va ravshanlik bilan boshqaring.",
@@ -31,6 +32,7 @@ export const uz = {
     email: "Elektron pochta",
     password: "Parol",
     signIn: "Tizimga kirish",
+    signingIn: "Kirilmoqda...",
     demoAccounts: "Demo hisoblari",
     demoAccountsHint: "Nusxalash uchun qiymatni bosing.",
     noAccount: "Hisobingiz yo'qmi? Administratoringizga murojaat qiling.",
@@ -82,6 +84,8 @@ export const uz = {
     subtitle: "Jamoa a'zolaringizni, ularning rollarini va kirish huquqlarini boshqaring.",
     addEmployee: "Xodim qo'shish",
     searchPlaceholder: "Ism, elektron pochta yoki lavozim bo'yicha qidiruv...",
+    allRoles: "Barcha rollar",
+    allStatuses: "Barcha holatlar",
     columnEmployee: "Xodim",
     columnPosition: "Lavozim",
     columnRole: "Rol",
@@ -124,8 +128,11 @@ export const uz = {
     subtitleAdmin: "Jamoa bo'ylab ishlarni yarating, tayinlang va kuzatib boring.",
     subtitleEmployee: "Hozirda sizga biriktirilgan barcha narsalar.",
     createTask: "Vazifa yaratish",
+    paginationLabel: "ta vazifa",
     searchPlaceholder: "Vazifalarni sarlavha yoki tavsif bo'yicha qidirish...",
     allAssignees: "Barcha topshiriqchilar",
+    allStatuses: "Barcha holatlar",
+    allPriorities: "Barcha darajalar",
     columnTask: "Vazifa",
     columnAssignee: "Topshiruvchi",
     columnPriority: "Ustuvorlik",

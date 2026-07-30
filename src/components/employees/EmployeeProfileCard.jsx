@@ -5,7 +5,7 @@ import { useLocale } from "@/hooks"
 import { formatDate, getFullName, getInitials } from "@/utils"
 
 export function EmployeeProfileCard({ employee }) {
-  const { t } = useLocale()
+  const { t, locale } = useLocale()
 
   return (
     <Card className="flex flex-col items-center gap-3 p-6 text-center">
@@ -32,7 +32,7 @@ export function EmployeeProfileCard({ employee }) {
         </p>
         <p>
           <span className="text-muted-foreground">{t("employees.joinedOn")}</span>{" "}
-          {formatDate(employee.createdAt)}
+          {formatDate(employee.createdAt, locale)}
         </p>
       </div>
     </Card>

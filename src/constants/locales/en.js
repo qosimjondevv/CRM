@@ -1,6 +1,5 @@
 export const en = {
   common: {
-    all: "All",
     save: "Save changes",
     cancel: "Cancel",
     delete: "Delete",
@@ -14,6 +13,7 @@ export const en = {
     next: "Next",
     viewAll: "View all",
     paginationSummary: "Showing {{from}}–{{to}} of {{total}}",
+    pageOf: "Page {{page}} of {{totalPages}}",
   },
   nav: {
     dashboard: "Dashboard",
@@ -21,6 +21,7 @@ export const en = {
     tasks: "Tasks",
     profile: "Profile",
     logout: "Log out",
+    loggingOut: "Logging out...",
   },
   auth: {
     heroTitle: "Manage your team with clarity and transparency.",
@@ -31,6 +32,7 @@ export const en = {
     email: "Email",
     password: "Password",
     signIn: "Sign in",
+    signingIn: "Signing in...",
     demoAccounts: "Demo accounts",
     demoAccountsHint: "Click a value to copy it.",
     noAccount: "Don't have an account? Contact your administrator.",
@@ -40,8 +42,8 @@ export const en = {
     EMPLOYEE: "Employee",
   },
   taskStatus: {
-    TODO: "To do",
-    IN_PROGRESS: "In progress",
+    TODO: "To Do",
+    IN_PROGRESS: "In Progress",
     DONE: "Done",
   },
   taskPriority: {
@@ -52,7 +54,7 @@ export const en = {
   employeeStatus: {
     ACTIVE: "Active",
     INACTIVE: "Inactive",
-    ON_LEAVE: "On leave",
+    ON_LEAVE: "On Leave",
   },
   dashboard: {
     adminTitle: "Welcome back, {{name}}",
@@ -71,7 +73,7 @@ export const en = {
     activityChartEmployee: "My activity",
     chartCompleted: "Completed",
     chartCreated: "Created",
-    recentEmployees: "Recently active employees",
+    recentEmployees: "Recent employees",
     recentTasksAdmin: "Recent tasks",
     recentTasksEmployee: "My tasks",
     noTasks: "No tasks",
@@ -82,6 +84,8 @@ export const en = {
     subtitle: "Manage your team members, their roles and access.",
     addEmployee: "Add employee",
     searchPlaceholder: "Search by name, email or position...",
+    allRoles: "All roles",
+    allStatuses: "All statuses",
     columnEmployee: "Employee",
     columnPosition: "Position",
     columnRole: "Role",
@@ -124,8 +128,11 @@ export const en = {
     subtitleAdmin: "Create, assign and track work across the team.",
     subtitleEmployee: "Everything currently assigned to you.",
     createTask: "Create task",
+    paginationLabel: "tasks",
     searchPlaceholder: "Search tasks by title or description...",
     allAssignees: "All assignees",
+    allStatuses: "All statuses",
+    allPriorities: "All priorities",
     columnTask: "Task",
     columnAssignee: "Assignee",
     columnPriority: "Priority",

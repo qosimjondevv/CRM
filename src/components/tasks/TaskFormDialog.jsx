@@ -28,6 +28,10 @@ export function TaskFormDialog({ open, onOpenChange, mode, task, assignableEmplo
   const { t } = useLocale()
   const priorityOptions = useTaskPriorityOptions()
   const statusOptions = useTaskStatusOptions()
+  const assigneeOptions = [
+    { value: "UNASSIGNED", label: t("common.unassigned") },
+    ...(assignableEmployees ?? []).map((employee) => ({ value: employee.id, label: getFullName(employee) })),
+  ]
   const { form, onSubmit, isPending } = useTaskForm({
     mode,
     task,
@@ -81,7 +85,7 @@ export function TaskFormDialog({ open, onOpenChange, mode, task, assignableEmplo
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>{t("tasks.priority")}</FormLabel>
-                    <Select value={field.value} onValueChange={field.onChange}>
+                    <Select items={priorityOptions} value={field.value} onValueChange={field.onChange}>
                       <FormControl>
                         <SelectTrigger className="w-full">
                           <SelectValue />
@@ -105,7 +109,7 @@ export function TaskFormDialog({ open, onOpenChange, mode, task, assignableEmplo
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>{t("tasks.status")}</FormLabel>
-                    <Select value={field.value} onValueChange={field.onChange}>
+                    <Select items={statusOptions} value={field.value} onValueChange={field.onChange}>
                       <FormControl>
                         <SelectTrigger className="w-full">
                           <SelectValue />
@@ -145,7 +149,7 @@ export function TaskFormDialog({ open, onOpenChange, mode, task, assignableEmplo
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>{t("tasks.assignee")}</FormLabel>
-                  <Select value={field.value} onValueChange={field.onChange}>
+                  <Select items={assigneeOptions} value={field.value} onValueChange={field.onChange}>
                     <FormControl>
                       <SelectTrigger className="w-full">
                         <SelectValue />

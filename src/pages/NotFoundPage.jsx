@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom"
 
 import { Button } from "@/components/ui"
-import { useLocale } from "@/hooks"
+import { useLocale, useDocumentTitle } from "@/hooks"
 import { ROUTE_PATHS } from "@/constants"
 
 export default function NotFoundPage() {
   const { t } = useLocale()
+
+  useDocumentTitle(t("notFound.title"))
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4">

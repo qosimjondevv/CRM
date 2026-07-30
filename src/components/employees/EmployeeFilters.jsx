@@ -19,7 +19,7 @@ export function EmployeeFilters({ filters, onFilterChange }) {
           onChange={(event) => onFilterChange("search", event.target.value)}
         />
       </div>
-      <Select value={filters.role} onValueChange={(value) => onFilterChange("role", value)}>
+      <Select items={roleOptions} value={filters.role} onValueChange={(value) => onFilterChange("role", value)}>
         <SelectTrigger className="w-full sm:w-44">
           <SelectValue />
         </SelectTrigger>
@@ -31,7 +31,11 @@ export function EmployeeFilters({ filters, onFilterChange }) {
           ))}
         </SelectContent>
       </Select>
-      <Select value={filters.status} onValueChange={(value) => onFilterChange("status", value)}>
+      <Select
+        items={statusOptions}
+        value={filters.status}
+        onValueChange={(value) => onFilterChange("status", value)}
+      >
         <SelectTrigger className="w-full sm:w-44">
           <SelectValue />
         </SelectTrigger>

@@ -20,7 +20,7 @@ import { formatDate, getFullName, getInitials } from "@/utils"
 import { ROUTE_PATHS } from "@/constants"
 
 export function EmployeeTableRow({ employee, onEdit, onDelete }) {
-  const { t } = useLocale()
+  const { t, locale } = useLocale()
 
   return (
     <TableRow>
@@ -43,7 +43,7 @@ export function EmployeeTableRow({ employee, onEdit, onDelete }) {
       <TableCell>
         <EmployeeStatusBadge status={employee.status} />
       </TableCell>
-      <TableCell>{formatDate(employee.createdAt)}</TableCell>
+      <TableCell>{formatDate(employee.createdAt, locale)}</TableCell>
       <TableCell>
         <DropdownMenu>
           <DropdownMenuTrigger render={<Button variant="ghost" size="icon-sm" />}>

@@ -5,7 +5,7 @@ export function TaskStatusSelect({ value, onChange, disabled }) {
   const options = useTaskStatusOptions()
 
   return (
-    <Select value={value} onValueChange={onChange} disabled={disabled}>
+    <Select items={options} value={value} onValueChange={onChange} disabled={disabled}>
       <SelectTrigger className="h-7 w-40 text-xs">
         <SelectValue />
       </SelectTrigger>

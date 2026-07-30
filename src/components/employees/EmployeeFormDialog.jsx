@@ -153,7 +153,7 @@ export function EmployeeFormDialog({ open, onOpenChange, mode, employee }) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>{t("employees.role")}</FormLabel>
-                    <Select value={field.value} onValueChange={field.onChange}>
+                    <Select items={roleOptions} value={field.value} onValueChange={field.onChange}>
                       <FormControl>
                         <SelectTrigger className="w-full">
                           <SelectValue />
@@ -177,7 +177,7 @@ export function EmployeeFormDialog({ open, onOpenChange, mode, employee }) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>{t("employees.status")}</FormLabel>
-                    <Select value={field.value} onValueChange={field.onChange}>
+                    <Select items={statusOptions} value={field.value} onValueChange={field.onChange}>
                       <FormControl>
                         <SelectTrigger className="w-full">
                           <SelectValue />

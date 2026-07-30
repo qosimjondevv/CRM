@@ -9,7 +9,7 @@ export function useRoleOptions() {
 export function useRoleFilterOptions() {
   const { t } = useLocale()
   const options = useRoleOptions()
-  return [{ value: "ALL", label: t("common.all") }, ...options]
+  return [{ value: "ALL", label: t("employees.allRoles") }, ...options]
 }
 
 export function useTaskStatusOptions() {
@@ -20,7 +20,7 @@ export function useTaskStatusOptions() {
 export function useTaskStatusFilterOptions() {
   const { t } = useLocale()
   const options = useTaskStatusOptions()
-  return [{ value: "ALL", label: t("common.all") }, ...options]
+  return [{ value: "ALL", label: t("tasks.allStatuses") }, ...options]
 }
 
 export function useTaskPriorityOptions() {
@@ -31,7 +31,7 @@ export function useTaskPriorityOptions() {
 export function useTaskPriorityFilterOptions() {
   const { t } = useLocale()
   const options = useTaskPriorityOptions()
-  return [{ value: "ALL", label: t("common.all") }, ...options]
+  return [{ value: "ALL", label: t("tasks.allPriorities") }, ...options]
 }
 
 export function useEmployeeStatusOptions() {
@@ -42,5 +42,5 @@ export function useEmployeeStatusOptions() {
 export function useEmployeeStatusFilterOptions() {
   const { t } = useLocale()
   const options = useEmployeeStatusOptions()
-  return [{ value: "ALL", label: t("common.all") }, ...options]
+  return [{ value: "ALL", label: t("employees.allStatuses") }, ...options]
 }

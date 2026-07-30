@@ -8,6 +8,11 @@ export function TaskFilters({ filters, onFilterChange, isAdmin, assignableEmploy
   const { t } = useLocale()
   const statusOptions = useTaskStatusFilterOptions()
   const priorityOptions = useTaskPriorityFilterOptions()
+  const assigneeOptions = [
+    { value: "ALL", label: t("tasks.allAssignees") },
+    { value: "UNASSIGNED", label: t("common.unassigned") },
+    ...(assignableEmployees ?? []).map((employee) => ({ value: employee.id, label: getFullName(employee) })),
+  ]
 
   return (
     <div className="mb-4 flex flex-col gap-2 sm:flex-row">
@@ -20,7 +25,7 @@ export function TaskFilters({ filters, onFilterChange, isAdmin, assignableEmploy
           onChange={(event) => onFilterChange("search", event.target.value)}
         />
       </div>
-      <Select value={filters.status} onValueChange={(value) => onFilterChange("status", value)}>
+      <Select items={statusOptions} value={filters.status} onValueChange={(value) => onFilterChange("status", value)}>
         <SelectTrigger className="w-full sm:w-44">
           <SelectValue />
         </SelectTrigger>
@@ -32,7 +37,11 @@ export function TaskFilters({ filters, onFilterChange, isAdmin, assignableEmploy
           ))}
         </SelectContent>
       </Select>
-      <Select value={filters.priority} onValueChange={(value) => onFilterChange("priority", value)}>
+      <Select
+        items={priorityOptions}
+        value={filters.priority}
+        onValueChange={(value) => onFilterChange("priority", value)}
+      >
         <SelectTrigger className="w-full sm:w-44">
           <SelectValue />
         </SelectTrigger>
@@ -45,7 +54,11 @@ export function TaskFilters({ filters, onFilterChange, isAdmin, assignableEmploy
         </SelectContent>
       </Select>
       {isAdmin ? (
-        <Select value={filters.assignedToId} onValueChange={(value) => onFilterChange("assignedToId", value)}>
+        <Select
+          items={assigneeOptions}
+          value={filters.assignedToId}
+          onValueChange={(value) => onFilterChange("assignedToId", value)}
+        >
           <SelectTrigger className="w-full sm:w-48">
             <SelectValue placeholder={t("tasks.allAssignees")} />
           </SelectTrigger>

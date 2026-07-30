@@ -13,19 +13,22 @@ export function EmployeeDashboardView({ stats, chart, myTasks }) {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <StatCard
           icon={CheckSquare}
-          iconClassName="bg-indigo-100 text-indigo-600"
+          iconClassName="bg-indigo-100 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-400"
+          accentClassName="border-l-indigo-500"
           label={t("dashboard.assignedTasks")}
           value={stats.assignedTasks}
         />
         <StatCard
           icon={CheckCircle2}
-          iconClassName="bg-green-100 text-green-600"
+          iconClassName="bg-green-100 text-green-600 dark:bg-green-500/15 dark:text-green-400"
+          accentClassName="border-l-green-500"
           label={t("dashboard.completed")}
           value={stats.completedTasks}
         />
         <StatCard
           icon={Clock}
-          iconClassName="bg-orange-100 text-orange-600"
+          iconClassName="bg-orange-100 text-orange-600 dark:bg-orange-500/15 dark:text-orange-400"
+          accentClassName="border-l-orange-500"
           label={t("dashboard.pending")}
           value={stats.pendingTasks}
           helper={

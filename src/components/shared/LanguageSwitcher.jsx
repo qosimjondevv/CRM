@@ -14,7 +14,7 @@ export function LanguageSwitcher({ className }) {
           type="button"
           onClick={() => setLocale(code)}
           className={cn(
-            "rounded-md px-2 py-1 uppercase transition-colors",
+            "cursor-pointer rounded-md px-2 py-1 uppercase transition-colors",
             locale === code ? "bg-muted text-foreground" : "text-muted-foreground hover:text-foreground"
           )}
         >

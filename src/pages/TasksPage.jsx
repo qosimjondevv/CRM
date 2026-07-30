@@ -72,7 +72,11 @@ export default function TasksPage() {
             onDelete={(task) => setDeleteTarget(task)}
             onStatusChange={(id, status) => updateStatus.mutate({ id, status })}
           />
-          <DataTablePagination meta={data?.meta} onPageChange={(page) => setParam("page", page)} />
+          <DataTablePagination
+            meta={data?.meta}
+            onPageChange={(page) => setParam("page", page)}
+            itemLabel={t("tasks.paginationLabel")}
+          />
         </>
       )}
 

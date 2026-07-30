@@ -13,11 +13,14 @@ const UZ_MONTHS = [
   "dekabr",
 ]
 
-export function formatDate(dateString) {
+export function formatDate(dateString, locale = "en") {
   if (!dateString) return "—"
   const date = new Date(dateString)
   if (Number.isNaN(date.getTime())) return "—"
-  return `${date.getFullYear()}-yil ${date.getDate()}-${UZ_MONTHS[date.getMonth()]}`
+  if (locale === "uz") {
+    return `${date.getFullYear()}-yil ${date.getDate()}-${UZ_MONTHS[date.getMonth()]}`
+  }
+  return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric" }).format(date)
 }
 
 export function isOverdue(dueDate, status) {

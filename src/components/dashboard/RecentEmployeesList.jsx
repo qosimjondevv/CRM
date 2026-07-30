@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom"
 
+import { cn } from "@/lib/utils"
 import { Avatar, AvatarFallback, AvatarImage, Card } from "@/components/ui"
 import { EmptyState } from "@/components/shared"
 import { EmployeeStatusBadge } from "@/components/employees"
 import { useLocale } from "@/hooks"
 import { getFullName, getInitials } from "@/utils"
-import { ROUTE_PATHS } from "@/constants"
+import { ROUTE_PATHS, EMPLOYEE_STATUS } from "@/constants"
+
+const AVATAR_RING = {
+  [EMPLOYEE_STATUS.ACTIVE]: "ring-green-500/50",
+  [EMPLOYEE_STATUS.INACTIVE]: "ring-border",
+  [EMPLOYEE_STATUS.ON_LEAVE]: "ring-yellow-500/50",
+}
 
 export function RecentEmployeesList({ employees }) {
   const { t } = useLocale()
@@ -22,11 +29,15 @@ export function RecentEmployeesList({ employees }) {
       {!employees?.length ? (
         <EmptyState title={t("dashboard.noEmployees")} />
       ) : (
-        <div className="space-y-3">
+        <div className="divide-y">
           {employees.map((employee) => (
-            <div key={employee.id} className="flex items-center justify-between gap-3">
+            <Link
+              key={employee.id}
+              to={ROUTE_PATHS.EMPLOYEE_DETAIL(employee.id)}
+              className="-mx-2 flex items-center justify-between gap-3 rounded-lg px-2 py-3 transition-colors first:pt-0 last:pb-0 hover:bg-muted/50"
+            >
               <div className="flex min-w-0 items-center gap-3">
-                <Avatar className="size-8">
+                <Avatar className={cn("size-8 ring-2 ring-offset-2 ring-offset-card", AVATAR_RING[employee.status])}>
                   <AvatarImage src={employee.avatar} alt={getFullName(employee)} />
                   <AvatarFallback>{getInitials(employee.firstName, employee.lastName)}</AvatarFallback>
                 </Avatar>
@@ -36,7 +47,7 @@ export function RecentEmployeesList({ employees }) {
                 </div>
               </div>
               <EmployeeStatusBadge status={employee.status} />
-            </div>
+            </Link>
           ))}
         </div>
       )}
