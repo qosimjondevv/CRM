@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 import { useLocale } from "@/hooks"
 
-const LOCALES = ["en", "uz"]
+const LOCALES = ["en", "uz", "ru"]
 
 export function LanguageSwitcher({ className }) {
   const { locale, setLocale } = useLocale()

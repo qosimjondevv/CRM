@@ -20,6 +20,9 @@ export function formatDate(dateString, locale = "en") {
   if (locale === "uz") {
     return `${date.getFullYear()}-yil ${date.getDate()}-${UZ_MONTHS[date.getMonth()]}`
   }
+  if (locale === "ru") {
+    return new Intl.DateTimeFormat("ru", { day: "numeric", month: "short", year: "numeric" }).format(date)
+  }
   return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric" }).format(date)
 }
 

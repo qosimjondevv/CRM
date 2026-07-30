@@ -3,14 +3,15 @@ import { useCallback, useMemo, useState } from "react"
 import { LocaleContext } from "./LocaleContext"
 import { en } from "@/constants/locales/en"
 import { uz } from "@/constants/locales/uz"
+import { ru } from "@/constants/locales/ru"
 import { createTranslator } from "@/utils"
 
-const DICTIONARIES = { en, uz }
+const DICTIONARIES = { en, uz, ru }
 const STORAGE_KEY = "crm.locale"
 
 function getInitialLocale() {
   const stored = window.localStorage.getItem(STORAGE_KEY)
-  return stored === "uz" || stored === "en" ? stored : "en"
+  return stored && DICTIONARIES[stored] ? stored : "en"
 }
 
 export function LocaleProvider({ children }) {
